@@ -26,3 +26,6 @@ brew update
 
 # Upgrade any already-installed formulae.
 brew upgrade
+
+# Install coreutils
+brew install coreutils
