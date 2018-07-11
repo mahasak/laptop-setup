@@ -165,6 +165,10 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 brew install zsh-autosuggestions
 append_to_zshrc 'source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh'
 
+# Install zsh autocompletions
+brew install zsh-autocompletions
+append_to_zshrc 'fpath=(/usr/local/share/zsh-completions $fpath)'
+
 # Install Powerline font
 git clone https://github.com/powerline/fonts.git --depth=1
 cd fonts
