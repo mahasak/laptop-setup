@@ -168,6 +168,10 @@ append_to_zshrc 'source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions
 # Install zsh autocompletions
 brew install zsh-autocompletions
 append_to_zshrc 'fpath=(/usr/local/share/zsh-completions $fpath)'
+append_to_zshrc 'autoload -Uz compinit'
+append_to_zshrc 'compinit'
+chmod go-w '/usr/local/share'
+rm -f ~/.zcompdump; compinit
 
 # Install Powerline font
 git clone https://github.com/powerline/fonts.git --depth=1
@@ -175,6 +179,11 @@ cd fonts
 ./install.sh
 cd ..
 rm -rf fonts
+
+#brew install postgresql
+#brew install mongo
+#brew install redis
+#brew install elasticsearch
 
 # Remove outdated versions from the cellar.
 brew cleanup
