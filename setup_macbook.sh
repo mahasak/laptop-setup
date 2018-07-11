@@ -1,12 +1,30 @@
 #!/usr/bin/env bash
 
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 shell_echo() {
   local fmt="$1"; shift
 
   # shellcheck disable=SC2059
   printf "$fmt\\n" "$@"
+}
+
+append_to_zshrc() {
+  local text="$1" zshrc
+  local skip_new_line="${2:-0}"
+
+  if [ -w "$HOME/.zshrc.local" ]; then
+    zshrc="$HOME/.zshrc.local"
+  else
+    zshrc="$HOME/.zshrc"
+  fi
+
+  if ! grep -Fqs "$text" "$zshrc"; then
+    if [ "$skip_new_line" -eq 1 ]; then
+      printf "%s\\n" "$text" >> "$zshrc"
+    else
+      printf "\\n%s\\n" "$text" >> "$zshrc"
+    fi
+  fi
 }
 
 # Asking for macbook administrator password
@@ -142,6 +160,10 @@ brew install zsh
 
 # Install Oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# Install zsh autosuggestion
+brew install zsh-autosuggestions
+append_to_zshrc 'source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh'
 
 # Install Powerline font
 git clone https://github.com/powerline/fonts.git --depth=1
