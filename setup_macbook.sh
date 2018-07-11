@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 shell_echo() {
   local fmt="$1"; shift
 
@@ -135,7 +137,18 @@ brew install nvm
 
 brew install tmux
 
+# Install zsh
+brew install zsh
 
+# Install Oh-my-zsh
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# Install Powerline font
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+./install.sh
+cd ..
+rm -rf fonts
 
 # Remove outdated versions from the cellar.
 brew cleanup
