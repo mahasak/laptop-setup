@@ -118,7 +118,8 @@ brew install pkg-config libffi
 brew install pandoc
 brew install figlet
 brew install cowsay
-
+brew install tldr
+brew install thefuck
 
 # Core casks
 brew cask install --appdir="/Applications" alfred
