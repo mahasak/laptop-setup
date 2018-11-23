@@ -66,6 +66,8 @@ brew install sfnt2woff-zopfli
 brew install sfnt2woff
 brew install woff2
 
+brew install watch
+brew install irssi geoip links nmap wget htop
 
 # Install CTF tools
 # Install some CTF tools; see https://github.com/ctfs/write-ups.
