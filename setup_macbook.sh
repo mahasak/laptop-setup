@@ -148,7 +148,7 @@ brew install zsh-autosuggestions
 append_to_zshrc 'source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh'
 
 # Install zsh autocompletions
-brew install zsh-autocompletions
+brew install zsh-completions
 append_to_zshrc 'fpath=(/usr/local/share/zsh-completions $fpath)'
 append_to_zshrc 'autoload -Uz compinit'
 append_to_zshrc 'compinit'
